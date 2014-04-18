@@ -40,14 +40,14 @@ import org.slf4j.LoggerFactory;
 /**
  * This application lets you specify a combination of search terms to search for entries in the 
  * Google Books collection. The search function uses the Google Books API http://goo.gl/H9Onl5.
- * 
+ * <p>
  * For the application to work, you need to obtain an API key and either store it in the 
  * ClientCredentials.java file (if you are a developer) or provide it as a command line argument
  * if you use the executable jar. Get your API key from:
  *      https://developers.google.com/books/docs/v1/using#APIKey
- * 
+ * <p>
  * There are basically two types of searches possible: simple search and term cluster search.
- * 
+ * <p>
  *    1. Simple search
  *    ----------------
  *    You provide an arbitrary number of search term combinations and the application queries 
@@ -125,18 +125,33 @@ import org.slf4j.LoggerFactory;
  *     (if provided). An example which stores only those books where the title or description
  *     contains the word 'handbook' is
  *           <string>(.*)handbook(.*)</string>
- * 
+ * <p>
  * The application can be run from the command line with the parameters:
  *    -p                name of parameter file, including path
  *    -v (optional)     verbose output
  *    -o (optional)     name of the output file
  *    -a (optional)     api key provided externally, as an alternative to hard coding in 
  *                      {@code ClientCredentials}
+ * <p>
+ * To run the application in Eclipse, you need to set up the command line parameters as follows
+ * <ul>
+ * <li> Right-click on GoogleBooksExtractor.java in the Package Explorer view
+ * <li> Select Run As -> Run Configurations...
+ * <li> If GoogleBooksExtractor is not in the Java Application list, click on the 
+ *      'New launch configuration' button at the top left. A new entry GoogleBooksExtractor will
+ *      appear.
+ * <li> Click on the GoogleBooksExtractor entry
+ * <li> Click on the tab '(x) = Arguments' tab in the right-hand pane
+ * <li> Add the following parameter line: -p "${file_prompt}" -v -o "./out/" -a "ENTER YOUR API KEY HERE"
+ * <li> Copy your API key to between the double quotes
+ * <li> Click Apply or Run
+ * </ul>
+ * <p> 
  * 
  * Limitations
  *  - The API seems to have a limit of 1000 search results it can return via pagination. This 
  *    limitation is not documented.
- * 
+ *    
  * Some Google Books basics:
  *    - Volume: A volume in Google Books speak represents the data that Google Books hosts about 
  *      a book or magazine.
