@@ -1,0 +1,22 @@
+<info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>
+  <paginations>3</paginations>
+  <clusters>
+    <entry>
+      <string>risk</string>
+      <list>
+        <string>intitle:risk</string>
+        <string>intitle:risks</string>
+      </list>
+    </entry>
+    <entry>
+      <string>system</string>
+      <list>
+        <string>intitle:catastrophe</string>
+        <string>intitle:catastrophic</string>
+        <string>intitle:accident</string>
+      </list>
+    </entry>
+  </clusters>
+  <filters>
+  </filters>
+</info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>

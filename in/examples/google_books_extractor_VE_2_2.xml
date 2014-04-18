@@ -1,0 +1,31 @@
+<info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>
+  <paginations>3</paginations>
+  <clusters>
+    <entry>
+      <string>risk</string>
+      <list>
+        <string>risk</string>
+        <string>risks</string>
+        <string>risky</string>
+        <string>riskiness</string>
+        <string>contingency</string>
+        <string>hazard</string>
+      </list>
+    </entry>
+    <entry>
+      <string>system</string>
+      <list>
+        <string>systemic</string>
+        <string>structure</string>
+        <string>structures</string>
+        <string>network</string>
+        <string>networks</string>
+        <string>networked</string>
+        <string>ecosystem</string>
+        <string>ecosystems</string>
+      </list>
+    </entry>
+  </clusters>
+  <filters>
+  </filters>
+</info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>

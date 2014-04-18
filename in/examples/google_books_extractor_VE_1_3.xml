@@ -1,0 +1,18 @@
+<info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>
+  <paginations>1</paginations>
+  <clusters>
+    <entry>
+      <string>risk</string>
+      <list>
+        <string>market systemic risk</string>
+        <string>"statistical learning of"</string>
+        <string>simulation power plant design</string>
+        <string>civil engineering impacts</string>
+        <string>"brownian motion theory"</string>
+        <string>neuroplasticity brain</string>
+      </list>
+    </entry>
+  </clusters>
+  <filters>
+  </filters>
+</info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>

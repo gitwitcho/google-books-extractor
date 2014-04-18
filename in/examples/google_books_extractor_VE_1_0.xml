@@ -1,0 +1,13 @@
+<info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>
+  <paginations>3</paginations>
+  <clusters>
+    <entry>
+      <string>risk</string>
+      <list>
+        <string>intitle:risk</string>
+      </list>
+    </entry>
+  </clusters>
+  <filters>
+  </filters>
+</info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>
