@@ -74,7 +74,7 @@ There are three different ways in which search queries can be specified:
         </entry>
      </clusters>
 ```
-The cluster names - 'cluster 1' and 'cluster 2' - are not used by the application but need to be unique since they are the keys of the hashmap storing the term query clusters.
+The cluster names ```cluster 1``` and ```cluster 2``` - are not used by the application but need to be unique since they are the keys of the hashmap storing the term query clusters.
 
 ## Filters and pagination
 
