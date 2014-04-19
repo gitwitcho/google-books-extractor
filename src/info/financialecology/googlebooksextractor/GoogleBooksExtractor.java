@@ -137,9 +137,9 @@ import org.slf4j.LoggerFactory;
  * <ul>
  * <li> Right-click on GoogleBooksExtractor.java in the Package Explorer view
  * <li> Select Run As -> Run Configurations...
- * <li> If GoogleBooksExtractor is not in the Java Application list, click on the 
- *      'New launch configuration' button at the top left. A new entry GoogleBooksExtractor will
- *      appear.
+ * <li> If GoogleBooksExtractor is not in the Java Application list, select the 'Java Application' 
+ *      entry and then click on the 'New launch configuration' button at the top left. A new entry 
+ *      GoogleBooksExtractor will appear.
  * <li> Click on the GoogleBooksExtractor entry
  * <li> Click on the tab '(x) = Arguments' tab in the right-hand pane
  * <li> Add the following parameter line: -p "${file_prompt}" -v -o "./out/" -a "ENTER YOUR API KEY HERE"
@@ -356,7 +356,7 @@ public class GoogleBooksExtractor {
         	/*
         	 *  Write volList results to CSV file
         	 */
-            if (outputDir != null) {
+            if ((outputDir != null) && (volList.size() != 0)) {
     	        logger.debug("\n\nWriting results to CSV file: {}\n", outputDir + fileNameStripped + ".csv");
     	        ResultWriterFactory.newCsvWriter(outputDir + fileNameStripped + ".csv").write(volList);
             }
@@ -365,7 +365,10 @@ public class GoogleBooksExtractor {
             logger.debug("Total number of volumes returned by Google Books API: {}", totalVolCounter);
         	logger.debug("Total number of volumes stored: {}", volList.size() - 1);
         	
-        	
+            if (volList.size() == 0) {
+                logger.debug("\n\n### IMPORTANT ### Google Books has returned no results, which can mean "
+                        + "that your API key has not been set\n");
+            }
 		} catch (Throwable t) {
 			t.printStackTrace();
 		}
