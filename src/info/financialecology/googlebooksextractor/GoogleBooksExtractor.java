@@ -244,10 +244,16 @@ public class GoogleBooksExtractor {
 	        
 	        // Validate parameters
 	        GoogleBooksExtractorParams.validate(params);
+	        
+	        ArrayList<String> tmpNameList;
 	        	        
 	        // Extract file name from path
-	        ArrayList<String> tmpNameList = new ArrayList<String>(Arrays.asList(fileName.split("\\\\")));
-	        String fileNameStripped = (tmpNameList.get(tmpNameList.size() - 1).split("\\."))[0];
+	        if (fileName.indexOf("/") >= 0)  // path name with forward slashes (when running from MS-DOS)
+                tmpNameList = new ArrayList<String>(Arrays.asList(fileName.split("/")));
+	        else
+    	        tmpNameList = new ArrayList<String>(Arrays.asList(fileName.split("\\\\")));
+	        
+            String fileNameStripped = (tmpNameList.get(tmpNameList.size() - 1).split("\\."))[0];              
 	        
 	        // Extract book volumes from Google Books for all inter-cluster term combinations
 	        Set<String> clusterNames = params.clusters.keySet();
