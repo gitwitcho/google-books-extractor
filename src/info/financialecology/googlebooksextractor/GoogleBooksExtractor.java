@@ -410,7 +410,6 @@ public class GoogleBooksExtractor {
         volumesList.setMaxResults((long) maxResults);
 
         Volumes volumes = volumesList.execute();    // Execute the query
-        com.google.api.client.http.HttpResponse resp =volumesList.executeUnparsed();
         
         // No volumes found
         if (volumes.getTotalItems() == 0 || volumes.getItems() == null) {
