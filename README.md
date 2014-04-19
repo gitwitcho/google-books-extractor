@@ -23,19 +23,20 @@ There are two ways in which you can run the application: from Eclipse or from th
 
 This includes .bat files and has been tested on Windows.
 
-1. Download the ```google-books-extractor.rar``` file from the [release page](https://github.com/gitwitcho/google-books-extractor/releases)
+1. Download the latest ```google-books-extractor.rar``` package from the [release page](https://github.com/gitwitcho/google-books-extractor/releases)
 2. Unzip into some directory
-3. On Windows, you can do either of two things to run the application
+3. In Windows there are two ways to run the application
   * Run the executable jar in the command line using an MS-DOS window (cmd.exe). The command line options are
     * -p name of parameter file, including path
     * -v (optional) verbose output
     * -o (optional) name of the output file
     * -a (optional) api key provided externally, as an alternative to hard coding it in ```ClientCredentials.java```
     * Example: ```java -jar google-books-extractor.jar -p ./params/google_books_extractor_VE_1_0.xml -o ./output/ -a "ENTER YOUR API KEY HERE"```
-  * Or use one of the three .bat files provided to run the application
-    * ```run-dist.bat``` - 
-    * ```run_to_txt-dist.bat``` - 
-    * ```run_to_csv-dist.bat``` - 
+  * Or double-click on one of the three .bat files that come with the RAR package to run the application
+    * ```run-dist.bat``` - Reads the XML parameter file and writes the output to the console in verbose mode.
+    * ```run_to_txt-dist.bat``` - Asks the user to provide the name of the output file, then reads the XML parameter file, and then redirects the console output to the file with the specified name and path.
+    * ```run_to_csv-dist.bat``` - Reads the XML parameter file, writes the output to the console in non-verbose mode, and stores the results in a CSV file. The name of the CSV file is automatically extracted from that of the input file.
+    * **NOTE**: You need to copy your API key to the indicated space in the .bat files. Edit with any text editor.
 
 ## Single, multiple, and clusters of search queries
 
