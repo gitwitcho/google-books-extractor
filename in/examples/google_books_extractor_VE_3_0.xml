@@ -1,5 +1,5 @@
 <info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>
-  <paginations>3</paginations>
+  <paginations>2</paginations>
   <clusters>
     <entry>
       <string>risk</string>
@@ -9,6 +9,6 @@
     </entry>
   </clusters>
   <filters>
-    <string>(.*)handbook(.*)</string>
+    <string>^(?!.*analysis.*).*$</string>
   </filters>
 </info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>

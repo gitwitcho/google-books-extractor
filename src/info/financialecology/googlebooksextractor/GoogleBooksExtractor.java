@@ -501,7 +501,7 @@ public class GoogleBooksExtractor {
 
 			String description = volumeInfo.getDescription();
 			
-			if (description == null) description = "";   // TODO Check whether title or description can be null; if not, remove the respective conditionals
+			if (description == null) description = "";
 			
             if (filters != null && !filters.isEmpty()) {
 				for (String filter : filters) { // no need to apply multiple filters since this can be handled by regex
@@ -571,43 +571,12 @@ public class GoogleBooksExtractor {
 				retainedVolCounter++;   // counter for the number of stored volumes (books)
 			}
 			else
-				logger.error("NOT STORED: {}", volumeInfo);
+				logger.trace("NOT STORED: {}", title.substring(0, Math.min(title.length(), 100)));
 
 		}
 	}
 
-	
-//    /**
-//     * Construct the query for a single or a combination of terms 
-//     *  
-//     * @param term
-//     * @return
-//     */
-//    private static String constructQuery(String term) {
-//        ArrayList<String> splittedTerms = new ArrayList<String>(Arrays.asList(term.split("\\+")));    // Split query term on spaces
-//        
-//        // TODO doesn't currently work with mixed double-quoted and non-quoted terms
-//        
-//        if (term.compareTo("null_term") != 0) {     // term is well defined
-//            return term;
-//        }
-////        if (term.compareTo("null_term") != 0) {     // term is well defined
-////            if (term.matches("^\\\".*\\\"$")) {     // is the term put into double quotes (e.g. "systemic risk")?
-////                return term;
-////            }
-////            else if (splittedTerms.size() > 1) {
-////                String query = "";
-////                for (String t : splittedTerms)
-////                    query += "+" + t;
-////                return query.substring(1);
-////            }
-////            else return term;
-////        }
-//        
-//        return "";
-//    }
-
-    
+	    
 	/**
 	 * Print the help string for command line usage 
 	 */
