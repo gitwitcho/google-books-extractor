@@ -75,7 +75,7 @@ There are three different ways in which search queries can be specified:
 ```
 The cluster names - 'cluster 1' and 'cluster 2' - are not used by the application but need to be unique since they are the keys of the hashmap storing the term query clusters.
 
-## Filter and pagination
+## Filters and pagination
 
 The XML parameter file has two further entries: filters and the maximum number of paginations
 
@@ -90,5 +90,10 @@ The results returned by the search query can by filtered by providing one or sev
 ```
 The first filter matches those results that do not contain the word 'analysis' while the second filter matches results that contain the years 2000-2019. Filters are OR'ed, meaning that one matched filter is sufficient to score an overall match. The filters use internally the ```String.matches(...)``` method that seem to be  matching the full expression. This means that a sentence such as 'Handbook of cognitive neuroscience' is not matched by the expression 'Handbook', but rather you have to match the full string first, e.g. '.*Handbook.*'. The filters are not case sensitive, meaning that e.g. 'Euro' matches 'euro'.
 
+### Maximum number of paginations
 
+Another parameter you can set in the XML file is the maximum number of paginations. The Google Books API allows only a maximum of 40 results to be returned by each query. Hence, to obtain more than 40 results for any given query, we need to use pagination to cycle through the batches of 40 results each. However, even with pagination there seems to be an (undocumented) soft limit of around 1000 results. The paginations parameter is provided as follows
+```
+    <paginations>8</paginations>
+```
 
