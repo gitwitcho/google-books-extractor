@@ -294,11 +294,13 @@ public class GoogleBooksExtractor {
 		        			int queryPage = 0;
 		        			
 		        			// Construct full query term
-		        			String query = constructQuery(term_1);
-		        			String tmp = constructQuery(term_2);
-		        			
-		        			if (tmp != "")
-		        				query += "+" + tmp;
+                            String query = term_1;
+
+                            if (terms_2.get(0).compareTo("null_term") != 0)
+		        			    query += "+" + term_2;
+                            
+                            // Surround '+' with spaces, to prevent strange (unexplicable) behaviour of the Google Books query
+                            query = query.replaceAll("\\+", " + ");
 		        					        			
    		        			/*
 		        			 * Apply pagination to extract all (available) book volumes - there seems 
@@ -408,6 +410,7 @@ public class GoogleBooksExtractor {
         volumesList.setMaxResults((long) maxResults);
 
         Volumes volumes = volumesList.execute();    // Execute the query
+        com.google.api.client.http.HttpResponse resp =volumesList.executeUnparsed();
         
         // No volumes found
         if (volumes.getTotalItems() == 0 || volumes.getItems() == null) {
@@ -569,32 +572,35 @@ public class GoogleBooksExtractor {
 	}
 
 	
-    /**
-     * Construct the query for a single or a combination of terms 
-     *  
-     * @param term
-     * @return
-     */
-    private static String constructQuery(String term) {
-        ArrayList<String> splittedTerms = new ArrayList<String>(Arrays.asList(term.split(" ")));    // Split query term on spaces
-        
-        // TODO doesn't currently work with mixed double-quoted and non-quoted terms
-        
-        if (term.compareTo("null_term") != 0) {     // term is well defined
-            if (term.matches("^\\\".*\\\"$")) {     // is the term put into double quotes (e.g. "systemic risk")?
-                return term;
-            }
-            else if (splittedTerms.size() > 1) {
-                String query = "";
-                for (String t : splittedTerms)
-                    query += "+" + t;
-                return query.substring(1);
-            }
-            else return term;
-        }
-        
-        return "";
-    }
+//    /**
+//     * Construct the query for a single or a combination of terms 
+//     *  
+//     * @param term
+//     * @return
+//     */
+//    private static String constructQuery(String term) {
+//        ArrayList<String> splittedTerms = new ArrayList<String>(Arrays.asList(term.split("\\+")));    // Split query term on spaces
+//        
+//        // TODO doesn't currently work with mixed double-quoted and non-quoted terms
+//        
+//        if (term.compareTo("null_term") != 0) {     // term is well defined
+//            return term;
+//        }
+////        if (term.compareTo("null_term") != 0) {     // term is well defined
+////            if (term.matches("^\\\".*\\\"$")) {     // is the term put into double quotes (e.g. "systemic risk")?
+////                return term;
+////            }
+////            else if (splittedTerms.size() > 1) {
+////                String query = "";
+////                for (String t : splittedTerms)
+////                    query += "+" + t;
+////                return query.substring(1);
+////            }
+////            else return term;
+////        }
+//        
+//        return "";
+//    }
 
     
 	/**

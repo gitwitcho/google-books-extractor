@@ -1,5 +1,5 @@
 <info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>
-  <paginations>3</paginations>
+  <paginations>1</paginations>
   <clusters>
     <entry>
       <string>risk</string>

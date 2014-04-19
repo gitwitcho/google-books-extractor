@@ -1,10 +1,10 @@
 <info.financialecology.googlebooksextractor.GoogleBooksExtractorParams>
-  <paginations>3</paginations>
+  <paginations>2</paginations>
   <clusters>
     <entry>
       <string>risk</string>
       <list>
-        <string>intitle:risk</string>
+        <string>intitle:bank+intitle:"systemic risk"</string>
       </list>
     </entry>
   </clusters>
