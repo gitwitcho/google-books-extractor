@@ -37,6 +37,7 @@ This includes .bat files and has been tested on Windows.
     * ```run_to_txt-dist.bat``` - Asks the user to provide the name of the output file, then reads the XML parameter file, and then redirects the console output to the file with the specified name and path.
     * ```run_to_csv-dist.bat``` - Reads the XML parameter file, writes the output to the console in non-verbose mode, and stores the results in a CSV file. The name of the CSV file is automatically extracted from that of the input file.
     * **NOTE**: You need to copy your API key to the indicated space in the .bat files. Edit with any text editor.
+    * **NOTE**: While the output of ```run-dist.bat``` and ```run_to_txt-dist.bat``` suggests that books are stored, this is only the case if an output file name is provided using the ```-o``` option. 
 
 ## Single, multiple, and clusters of search queries
 
