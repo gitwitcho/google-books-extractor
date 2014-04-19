@@ -10,7 +10,7 @@ The application uses the Google Books API to extract book details such as title,
 
 There are two ways in which you can run the application: from Eclipse or from the command line (.bat files are provided for Windows).
 
-## Running from Eclipse
+## Running the extractor from Eclipse
 
 1. Get a copy of the files from this GitHub repository, for instance using the Eclipse SVN plug-in
 2. In Eclipse, add the following program arguments via 'Run Configurations...': ``` -p "${file_prompt}" -v -o "./out/" -a "ENTER YOUR API KEY HERE" ```
@@ -19,9 +19,23 @@ There are two ways in which you can run the application: from Eclipse or from th
   * the class ```ClientCredentials.java```
 4. Run the application in Eclipse via the main method in ```GoogleBooksExtractor.java```
 
-## Running from the command line
+## Running the extractor from the command line
 
-[coming soon]
+This includes .bat files and has been tested on Windows.
+
+1. Download the ```google-books-extractor.rar``` file from the [release page](https://github.com/gitwitcho/google-books-extractor/releases)
+2. Unzip into some directory
+3. On Windows, you can do either of two things to run the application
+  * Run the executable jar in the command line using an MS-DOS window (cmd.exe). The command line options are
+    * -p name of parameter file, including path
+    * -v (optional) verbose output
+    * -o (optional) name of the output file
+    * -a (optional) api key provided externally, as an alternative to hard coding it in ```ClientCredentials.java```
+    * Example: ```java -jar google-books-extractor.jar -p ./params/google_books_extractor_VE_1_0.xml -o ./output/ -a "ENTER YOUR API KEY HERE"```
+  * Or use one of the three .bat files provided to run the application
+    * ```run-dist.bat``` - 
+    * ```run_to_txt-dist.bat``` - 
+    * ```run_to_csv-dist.bat``` - 
 
 ## Single, multiple, and clusters of search queries
 
