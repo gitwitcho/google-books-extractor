@@ -49,7 +49,7 @@ There are three different ways in which search queries can be specified:
             </list>
         </entry>
         <entry>
-            <string>cluster 1</string>
+            <string>cluster 2</string>
             <list>
                 <string>"complex system"</string>
                 <string>intitle:multiagent+simulation</string>
