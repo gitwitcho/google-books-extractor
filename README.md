@@ -73,3 +73,22 @@ There are three different ways in which search queries can be specified:
         </entry>
      </clusters>
 ```
+The cluster names - 'cluster 1' and 'cluster 2' - are not used by the application but need to be unique since they are the keys of the hashmap storing the term query clusters.
+
+## Filter and pagination
+
+The XML parameter file has two further entries: filters and the maximum number of paginations
+
+### Apply regex filters to results from the Google Books query
+
+The results returned by the search query can by filtered by providing one or several regex expressions in the XML parameter file
+```
+    <filters>
+        <string>^(?!.*analysis.*).*$</string>
+        <string>.*20[01][0-9].*</string>
+    </filters>
+```
+The first filter matches those results that do not contain the word 'analysis' while the second filter matches results that contain the years 2000-2019. Filters are OR'ed, meaning that one matched filter is sufficient to score an overall match. The filters use internally the ```String.matches(...)``` method that seem to be  matching the full expression. This means that a sentence such as 'Handbook of cognitive neuroscience' is not matched by the expression 'Handbook', but rather you have to match the full string first, e.g. '.*Handbook.*'. The filters are not case sensitive, meaning that e.g. 'Euro' matches 'euro'.
+
+
+
